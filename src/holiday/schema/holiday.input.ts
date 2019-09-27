@@ -8,6 +8,8 @@ export class HolidayInput {
     @Field()
     desc: string;
     @Field()
+    calendar: string;
+    @Field()
     active: boolean;
 }
 

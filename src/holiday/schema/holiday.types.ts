@@ -8,5 +8,7 @@ export class HolidayType {
     @Field()
     desc: string;
     @Field()
+    calendar: string;
+    @Field()
     active: boolean;
 }
