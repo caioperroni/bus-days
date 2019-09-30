@@ -1,12 +1,19 @@
 
 ## Description
 
-bus-days is a tool to manage holidays within diferent calendars and provide a solution for business days dates operations.
-developed for a GFT's Tech Talk by caiognecco
+bus-days is a tool to manage holidays within diferent calendars and provide a solution for business days dates most common operations.
 
-[Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
+Developed for a GFT's Tech Talk by Caio Perroni Gnecco - COGC
+Techs: Node.js (Nest Framework), GraphQL and MongoDB (mongoose).
+
 
 ## Installation
+
+### Pre-reqs
+
+This application requires a standalone local MongoDB server running at mongodb://localhost/.
+
+### Install dependencies
 
 ```bash
 $ npm install
@@ -21,32 +28,35 @@ $ npm run start
 # watch mode
 $ npm run start:dev
 
-# production mode
+# production mode # requires MongoDB server configuration
 $ npm run start:prod
 ```
 
-## Test
+## Playground
 
-```bash
-# unit tests
-$ npm run test
+As any GraphQL application there's no Swagger or endpoints, but Resolvers.
 
-# e2e tests
-$ npm run test:e2e
+Resolvers are Queries and Mutations that can be used trough:
 
-# test coverage
-$ npm run test:cov
+```
+http://localhost:3000/graphql
 ```
 
-## Support
+This URL, when reched through a browser loads a Playground, app that allows you to test all Queries and Mutations. 
 
-Nest is an MIT-licensed open source project. It can grow thanks to the sponsors and support by the amazing backers. If you'd like to join them, please [read more here](https://docs.nestjs.com/support).
+The API supports 'application/graphql' requests.
+
+## Serving over HTTP
+
+You can use GraphQL with HTTP also. Read:
+
+```
+https://graphql.org/learn/serving-over-http/
+```
 
 ## Stay in touch
 
-- Author - [Kamil Myśliwiec](https://kamilmysliwiec.com)
-- Website - [https://nestjs.com](https://nestjs.com/)
-- Twitter - [@nestframework](https://twitter.com/nestframework)
+- Author - [Caio Perroni Gnecco](https://www.linkedin.com/in/caiognecco/)
 
 ## License
 
