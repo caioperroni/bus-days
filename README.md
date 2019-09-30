@@ -4,6 +4,7 @@
 bus-days is a tool to manage holidays within diferent calendars and provide a solution for business days dates most common operations.
 
 Developed for a GFT's Tech Talk by Caio Perroni Gnecco - COGC
+
 Techs: Node.js (Nest Framework), GraphQL and MongoDB (mongoose).
 
 
