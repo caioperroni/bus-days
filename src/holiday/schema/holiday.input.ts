@@ -7,8 +7,8 @@ export class HolidayInput {
     date: Date;
     @Field()
     desc: string;
-    @Field()
-    calendar: string;
+    @Field(() => [String])
+    calendars: [string];
     @Field()
     active: boolean;
 }

@@ -9,4 +9,6 @@ export class OperationInput {
     dateTo: Date;
     @Field({ nullable: true })
     nDays: number;
+    @Field(() => [String], { nullable: true })
+    calendars: [string];
 }

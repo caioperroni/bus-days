@@ -9,22 +9,22 @@ export class OperationResolver {
         private readonly operationBusiness: OperationBusiness,
     ) { }
 
-    @Query(() => String)
+    @Query(() => Date)
     async todayDiffBusinessDays(@Args('input') input: OperationInput) {
         return await this.operationBusiness.todayDiffBusinessDays(input).then(r => r).catch(e => e);
     }
 
-    @Query(() => String)
+    @Query(() => Date)
     async dateDiffBusinessDays(@Args('input') input: OperationInput) {
         return await this.operationBusiness.dateDiffBusinessDays(input).then(r => r).catch(e => e);
     }
 
-    @Query(() => String)
+    @Query(() => Number)
     async businessDaysDiffToday(@Args('input') input: OperationInput) {
         return await this.operationBusiness.businessDaysDiffToday(input).then(r => r).catch(e => e);
     }
 
-    @Query(() => String)
+    @Query(() => Number)
     async businessDaysDiffDate(@Args('input') input: OperationInput) {
         return await this.operationBusiness.businessDaysDiffDate(input).then(r => r).catch(e => e);
     }
