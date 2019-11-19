@@ -15,7 +15,7 @@ export class OperationBusiness {
     async todayDiffBusinessDays(input: OperationInput): Promise<Date> {
         if (!!input.nDays) {
             const sign = Math.sign(input.nDays);
-            let secMargin = sign * this.secMargin;
+            const secMargin = sign * this.secMargin;
             const today = new Date(new Date().getFullYear(), new Date().getMonth(), new Date().getDate());
             today.setUTCHours(0, 0, 0, 0);
             const dateTo = new Date(today);
@@ -26,8 +26,8 @@ export class OperationBusiness {
                     $lte: input.nDays >= 0 ? dateTo : today,
                 },
                 active: true,
-                ['calendars']: !!input.calendars ? { $in: input.calendars } : { $exists: true }
-            }
+                ['calendars']: !!input.calendars ? { $in: input.calendars } : { $exists: true },
+            };
             return await this.holidayModel.find(query).then(async r => {
                 while (input.nDays !== sign * -1) {
                     const idx = r.findIndex(el => el.date.valueOf() === today.valueOf());
@@ -50,7 +50,7 @@ export class OperationBusiness {
     async dateDiffBusinessDays(input: OperationInput): Promise<Date> {
         if (!!input.nDays && !!input.dateFrom) {
             const sign = Math.sign(input.nDays);
-            let secMargin = sign * this.secMargin;
+            const secMargin = sign * this.secMargin;
             const dateFrom = new Date(input.dateFrom.getUTCFullYear(), input.dateFrom.getUTCMonth(), input.dateFrom.getUTCDate());
             dateFrom.setUTCHours(0, 0, 0, 0);
             const dateTo = new Date(dateFrom);
@@ -61,8 +61,8 @@ export class OperationBusiness {
                     $lte: input.nDays >= 0 ? dateTo : dateFrom,
                 },
                 active: true,
-                ['calendars']: !!input.calendars ? { $in: input.calendars } : { $exists: true }
-            }
+                ['calendars']: !!input.calendars ? { $in: input.calendars } : { $exists: true },
+            };
 
             return await this.holidayModel.find(query).then(async r => {
                 while (input.nDays !== sign * -1) {
@@ -83,7 +83,7 @@ export class OperationBusiness {
         }
     }
 
-    async businessDaysDiffToday(input: OperationInput): Promise<Number> {
+    async businessDaysDiffToday(input: OperationInput): Promise<number> {
         if (!!input.dateTo) {
             const today = new Date(new Date().getFullYear(), new Date().getMonth(), new Date().getDate());
             today.setUTCHours(0, 0, 0, 0);
@@ -97,8 +97,8 @@ export class OperationBusiness {
                     $lte: sign >= 0 ? dateTo : today,
                 },
                 active: true,
-                ['calendars']: !!input.calendars ? { $in: input.calendars } : { $exists: true }
-            }
+                ['calendars']: !!input.calendars ? { $in: input.calendars } : { $exists: true },
+            };
             return await this.holidayModel.find(query).then(async r => {
                 while (today.valueOf() !== dateTo.valueOf()) {
                     const idx = r.findIndex(el => el.date.valueOf() === today.valueOf());
@@ -116,7 +116,7 @@ export class OperationBusiness {
         }
     }
 
-    async businessDaysDiffDate(input: OperationInput): Promise<Number> {
+    async businessDaysDiffDate(input: OperationInput): Promise<number> {
         if (!!input.dateTo && !!input.dateFrom) {
             const dateFrom = new Date(input.dateFrom.getUTCFullYear(), input.dateFrom.getUTCMonth(), input.dateFrom.getUTCDate());
             dateFrom.setUTCHours(0, 0, 0, 0);
@@ -130,8 +130,8 @@ export class OperationBusiness {
                     $lte: sign >= 0 ? dateTo : dateFrom,
                 },
                 active: true,
-                ['calendars']: !!input.calendars ? { $in: input.calendars } : { $exists: true }
-            }
+                ['calendars']: !!input.calendars ? { $in: input.calendars } : { $exists: true },
+            };
             return await this.holidayModel.find(query).then(async r => {
                 while (dateFrom.valueOf() !== dateTo.valueOf()) {
                     const idx = r.findIndex(el => el.date.valueOf() === dateFrom.valueOf());
